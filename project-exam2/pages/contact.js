@@ -1,8 +1,10 @@
 import { BASE_URL } from '../constans/api';
 import axios from "axios";
+import styles from "../styles/Home.module.scss";
 import Layout from '../components/layout/Layout';
 import Heading from '../components/heading/Heading';
 import Head from '../components/head/Head';
+import ContactForm from '../components/form/ContactForm';
 
 
 export default function Contact(props) {
@@ -10,7 +12,10 @@ export default function Contact(props) {
   return (
     <Layout>
       <Head title={props.contactpage.data.attributes.title}/>
-      <Heading title={props.contactpage.data.attributes.title}/>
+      <div className={styles.container}>
+        <Heading title={props.contactpage.data.attributes.title}/>
+        <ContactForm/>
+      </div>
     </Layout>
   )
 }

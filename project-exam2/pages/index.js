@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.scss";
 import { BASE_URL } from '../constans/api';
 import axios from "axios";
+import {useRouter} from "next/router";
 import Layout from '../components/layout/Layout';
 import Head from '../components/head/Head';
 import Heading from "../components/heading/Heading";
@@ -8,21 +9,26 @@ import Heading from "../components/heading/Heading";
 
 export default function Home(props) {
   console.log(props)
+  const router = useRouter();
   return (
     <Layout>
       <Head title={props.content.data.attributes.title}/>
-      <div>
+      <div className={styles.container}>
         <Heading title={props.content.data.attributes.title}/>
         <p className={styles.infocard}>{props.content.data.attributes.description}</p>
+        <button type="button" onClick={() => router.push('/accomodations')} className={styles.bookBtn}>BOOK NOW</button>
       </div>
       <div className={styles.cardContainer}>
           {props.content.data.attributes.hotels.data.map((shortcut) =>{
-            return <div className={styles.card}>
-                      <div>IMAGE</div>
-                      <h2 key={shortcut.attributes.id} className={styles.title}>{shortcut.attributes.name}</h2>
+            return <a key={shortcut.id} className={styles.card}>
+                      {/* {props.content.data.attributes.images.data.map((shortcutImages) =>{
+                        // return <img src={shortcutImages.url}></img> 
+                        // <div style={{backgroundImage: shortcutImages.url}}></div>
+                      })} */}
+                      <h2 key={shortcut.attributes.id} className={styles.subTitle}>{shortcut.attributes.name}</h2>
                       <p>{shortcut.attributes.excerpt}</p>
-                      <button>Read more...</button>
-                  </div>
+                      <button className={styles.infoBtn}>Read more...</button>
+                  </a>
           })}
       </div>
     </Layout>
@@ -49,20 +55,3 @@ export async function getStaticProps(){
     },
   };
 }
-
-export async function getImages(){
-  const imageApi = BASE_URL + "upload/files";
-
-  try {
-    const response = await fetch(imageApi);
-    const images = response.json();
-    console.log(images)
-    images.then(function(result){
-      console.log(result)
-    })
-  } catch(error){
-    console.log(error)
-  }
-}
-
-getImages()

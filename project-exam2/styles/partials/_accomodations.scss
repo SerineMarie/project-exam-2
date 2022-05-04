@@ -1,0 +1,16 @@
+.accomodationsCard {
+    border: 2px solid getColor(black);
+    border-radius: 5px;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    width: 75%;
+    .card {
+        display: flex;
+        flex-wrap: wrap;
+        
+        
+        h2 {
+            width: 100%;
+        }
+    }
+}
