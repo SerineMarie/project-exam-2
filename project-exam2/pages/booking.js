@@ -5,6 +5,7 @@ import Layout from "../components/layout/Layout";
 import { BASE_URL } from "../constans/api";
 import BookingForm from "../components/form/BookingForm";
 import styles from '../styles/Home.module.scss'
+import DisplayMessage from "../components/displayMessage/DisplayMessage";
 
 export default function Booking (props){
     console.log(props);
@@ -20,13 +21,14 @@ export default function Booking (props){
 }
 
 export async function getStaticProps(){
-    const bookingApi = BASE_URL + "booking"
+    const bookingApi = BASE_URL + "/booking"
     let bookingpage = [];
     try{
         const response = await axios.get(bookingApi);
         console.log(response.data);
         bookingpage = response.data;
     } catch(error){
+        DisplayMessage(`An error occured`, {error})
         console.log(error)
     }
     return {

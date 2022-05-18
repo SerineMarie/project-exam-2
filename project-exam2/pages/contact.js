@@ -5,6 +5,7 @@ import Layout from '../components/layout/Layout';
 import Heading from '../components/heading/Heading';
 import Head from '../components/head/Head';
 import ContactForm from '../components/form/ContactForm';
+import DisplayMessage from '../components/displayMessage/DisplayMessage';
 
 
 export default function Contact(props) {
@@ -22,7 +23,7 @@ export default function Contact(props) {
 
 
 export async function getStaticProps(){
-  const contactApi = BASE_URL + "contactpage";
+  const contactApi = BASE_URL + "/contactpage";
   let contactpage = [] ;
 
   try {
@@ -30,6 +31,7 @@ export async function getStaticProps(){
     console.log(response.data);
     contactpage = response.data;
   } catch(error){
+    DisplayMessage(`An error occured`, {error})
     console.log(error)
   }
   return {

@@ -11,7 +11,7 @@ import DisplayMessage from "../components/displayMessage/DisplayMessage";
 export default function Home(props) {
   console.log(props)
 
-  const [filters, setFilters] = useState({s:``});
+  // const [filters, setFilters] = useState({s:``});
 
   const router = useRouter();
   return (
@@ -46,7 +46,7 @@ export default function Home(props) {
 
 
 export async function getStaticProps(){
-  const homeApi = BASE_URL + "homepage?populate=*";
+  const homeApi = BASE_URL + "/homepage?populate=*";
   let content = [];
 
   try {
