@@ -18,7 +18,7 @@ export default function Accomodations(props){
         {props.accomodations.data.map((hotel)=>{
           return(
             <div key={hotel.slug} className={styles.accomodationsCard}>
-              <a href={`hotels/${hotel.attributes.slug}`} className={styles.accomodationsContent}>
+              <a href={`/accomodation/${hotel.attributes.slug}`} className={styles.accomodationsContent}>
                 <img src={hotel.attributes.images.data[0].attributes.url} className={styles.images}></img>
                 <h2 className={styles.subTitle}>{hotel.attributes.name}</h2>
                 <p className={styles.location} key={hotel.attributes.id}>{hotel.attributes.location}</p>
