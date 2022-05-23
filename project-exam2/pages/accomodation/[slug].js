@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../constans/api";
+import styles from "../../styles/Home.module.scss"
 import Head from "../../components/head/Head";
 import Heading from "../../components/heading/Heading";
 import Layout from "../../components/layout/Layout";
@@ -7,9 +8,9 @@ import Layout from "../../components/layout/Layout";
 export default function Accomodation({accomodation}){
     return (
         <Layout>
-            <Head title={accomodation.attributes.name}/>
+            {/* <Head title={accomodation.attributes.name}/> */}
             <Heading title={accomodation.attributes.name}/>
-            <h1>Hello</h1>
+            <div className={styles.container}></div>
         </Layout>
     );
 }
@@ -38,14 +39,13 @@ export async function getStaticProps({params}){
     const url = `${hotelApi}?hotels=${params.slug}&populate=*`;
     let accomodation = null;
     try {
-        const response = await axios.get(url);
-        console.log(response.data);
-        accomodation = response.data;
+        const res = await axios.get(url);
+        console.log(res.data);
+        accomodation = res.data;
     } catch(error){
         console.log(error)
     }
     return {
         props: {accomodation: accomodation},
     }
-
 }
