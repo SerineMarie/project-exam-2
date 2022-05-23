@@ -4,12 +4,11 @@ import Head from "../../components/head/Head";
 import Heading from "../../components/heading/Heading";
 import Layout from "../../components/layout/Layout";
 
-
-export default function Accomodation({accomodations}){
+export default function Accomodation({accomodation}){
     return (
         <Layout>
-            <Head title={accomodations.attributes.name}/>
-            <Heading title={accomodations.attributes.name}/>
+            <Head title={accomodation.attributes.name}/>
+            <Heading title={accomodation.attributes.name}/>
             <h1>Hello</h1>
         </Layout>
     );

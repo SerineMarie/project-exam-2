@@ -5,7 +5,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../../styles/Home.module.scss";
-// import Booking from "../../pages/booking";
 
 const schema = yup.object().shape({
     checkIn: yup.date().required("Please choose a check in date"),
@@ -17,7 +16,7 @@ const schema = yup.object().shape({
 });
 
 function BookingForm(){
-    const [submitted, setSubmitted] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
 
     const {
         register, 
@@ -63,7 +62,6 @@ function BookingForm(){
                         onChange={date => setEndDate(date)}
                     />
                 </div>
-            
             </div>
             <div className={styles.howMany}>
                 <p>Guest(s)</p>

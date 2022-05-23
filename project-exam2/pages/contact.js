@@ -7,7 +7,6 @@ import Head from '../components/head/Head';
 import ContactForm from '../components/form/ContactForm';
 import DisplayMessage from '../components/displayMessage/DisplayMessage';
 
-
 export default function Contact(props) {
   console.log(props)
   return (
