@@ -1,5 +1,5 @@
 import axios from "axios";
-import styles from "../../styles/Home.module.scss";
+import styles from "../../../styles/Home.module.scss";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../../../constans/api";
 

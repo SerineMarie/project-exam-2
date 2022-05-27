@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../constans/api";
-import styles from "../../styles/Home.module.scss"
+import styles from "../../styles/Home.module.scss";
 import Head from "../../components/common/head/Head";
 import Heading from "../../components/common/heading/Heading";
 import Layout from "../../components/common/layout/Layout";
