@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.scss";
 // import { useState } from "react";
-import { BASE_URL } from '../constans/api';
-import axios from "axios";
+// import { BASE_URL } from '../constans/api';
+// import axios from "axios";
 import AdminLayout from "../components/common/layout/AdminLayout";
 import Head from '../components/common/head/Head';
-import DisplayMessage from "../components/common/displayMessage/DisplayMessage";
+// import DisplayMessage from "../components/common/displayMessage/DisplayMessage";
 import Heading from "../components/common/heading/Heading";
 import Link from "next/link";
 

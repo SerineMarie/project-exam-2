@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constans/api";
-import axios from "axios";
+// import { BASE_URL } from "../constans/api";
+// import axios from "axios";
 import styles from "../styles/Home.module.scss";
 // import DisplayMessage from "../components/common/displayMessage/DisplayMessage";
 import AdminLayout from "../components/common/layout/AdminLayout";

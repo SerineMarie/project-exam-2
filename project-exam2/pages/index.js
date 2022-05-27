@@ -1,8 +1,8 @@
 import styles from "../styles/Home.module.scss";
-import { BASE_URL } from '../constans/api';
+import { BASE_URL } from "../constans/api";
 import axios from "axios";
 import {useRouter} from "next/router";
-import Layout from '../components/common/layout/Layout';
+import Layout from "../components/common/layout/Layout";
 import Head from "../components/common/head/Head";
 import DisplayMessage from "../components/common/displayMessage/DisplayMessage";
 

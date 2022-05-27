@@ -1,11 +1,12 @@
 import { BASE_URL } from "../../constans/api";
 import axios from "axios";
 import { useState } from "react";
-import { get, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import styles from "../../styles/Home.module.scss";
 import { getToken } from "../../utils/storage";
+
 
 const schema = yup.object().shape({
     hotelname: yup.string().required("Please enter name of hotel").min(3, "Please enter at least 3 characters"),
