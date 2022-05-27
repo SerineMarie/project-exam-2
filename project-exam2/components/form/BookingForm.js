@@ -5,18 +5,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "../../styles/Home.module.scss";
+import { BASE_URL } from "../../constans/api";
+import axios from "axios";
+import { getToken } from "../../utils/storage";
+
 
 const schema = yup.object().shape({
-    checkIn: yup.date().required("Please choose a check in date"),
-    checkOut: yup.date().test("Please choose a check out date", "Check in and check out cannot be on the same date",function(value){
-        const {checkIn} = this.parent;
-        return value.getTime() !== checkIn.getTime();
-    }),
     howMany: yup.string().required("Please choose how many people"),
+    hotelMessage: yup.string(),
 });
 
-function BookingForm(){
-    // const [submitted, setSubmitted] = useState(false);
+export default function BookingForm(){
+    const bookingUrl = BASE_URL + "/bookings?populate=*";
+
+    const [submitting, setSubmitting] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date())
+
+    endDate.setDate(endDate.getDate() +1);
 
     const {
         register, 
@@ -26,18 +32,55 @@ function BookingForm(){
         resolver: yupResolver(schema),
     });
 
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date())
 
-    function onSubmit(data){
+    function onSubmit(data, e){
+        // const token = getToken();
         console.log(data);
-        //do a post request
-        //reset values?????
+        setSubmitting(true);
+        axios.post(bookingUrl, {
+            "data": {
+                "fullname": data.fullname,
+                "checkIn": data.checkIn,
+                "checkOut": data.checkOut,
+                "howMany": data.howMany,
+                "hotelMessage": data.hotelMessage,
+            }
+        },{
+            headers: {
+                ContentType: `application/json`,
+            }
+        }
+        )
+        .then(response => {
+            if(endDate === startDate){
+                alert("Please choose different check in date")
+            }
+            setSubmitting(true);
+            e.target.reset();
+            setSubmitting(false);
+        })
     }
     console.log(errors);
 
     return(
         <form onSubmit={handleSubmit(onSubmit)} className={styles.bookingForm}>
+            <div className={styles.fullname}>
+                <p>Fullname</p>
+                <input {...register("fullname")} placeholder="Full name" className={styles.formInput}/>
+                {errors.fullname && <span className={styles.formError}>{errors.fullname.message}</span>}
+            </div>
+            <div className={styles.howMany}>
+                <p>Guest(s)</p>
+                <select {...register("howMany")}>
+                    <option>1 person</option>
+                    <option>2 people</option>
+                    <option>3 people</option>
+                    <option>4 people</option>
+                    <option>5 people</option>
+                    <option>5+ people</option>
+                </select>
+                {errors.howMany && <span className={styles.formError}>{errors.howMany.message}</span>}
+            </div>
             <div className={styles.checkIn}>
                 <p>Check In</p>
                 <div>
@@ -63,25 +106,11 @@ function BookingForm(){
                     />
                 </div>
             </div>
-            <div className={styles.howMany}>
-                <p>Guest(s)</p>
-                <select {...register("howMany")}>
-                    <option>1 person</option>
-                    <option>2 people</option>
-                    <option>3 people</option>
-                    <option>4 people</option>
-                    <option>5 people</option>
-                    <option>5+ people</option>
-                </select>
-                {errors.howMany && <span className={styles.formError}>{errors.howMany.message}</span>}
-            </div>
             <div className={styles.textarea}>
                 <p>Message for the hotel (optional)</p>
-                <textarea {...register("message")} placeholder="Message" className={styles.formMessage}/>
+                <textarea {...register("hotelMessage")} placeholder="Message for hotel (optional)" className={styles.formMessage}/>
             </div>
-            <button className={styles.submitBtn}>Submit</button>
+            <button className={styles.submitBtn}>{submitting ? "Submitting.." : "Submit"}</button>
         </form>
     )
 }
-
-export default BookingForm;
