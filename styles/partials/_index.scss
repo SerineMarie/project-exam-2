@@ -1,0 +1,109 @@
+.contentContainer{
+        margin: auto;
+        width: 70%;
+}
+
+.section{
+    margin-top: 10%;
+    margin-bottom: 15%;
+    .bookBtn{
+        width: 50%;
+        padding: 1%;
+        margin: 1%;
+        cursor: pointer;
+    }    
+    .infoCard {
+        border: 2px solid getColor(gray);
+        border-radius: 5px;
+        background: getColor(whiteOpacity);
+        padding: 0 1% 1% 1% ;
+        .mainTitle{
+            color: getColor(primary);
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.cardContent{
+    border: 2px solid getColor(primary);
+    border-radius: 5px;
+    background: getColor(whiteOpacity);
+    padding: 1%;
+    margin: 1%;
+    margin-bottom: 5%;
+    a{
+        text-decoration: none;
+        color: getColor(black);
+    }
+    .infoBtn{
+        border: 2px solid getColor(primary);
+        border-radius: 5px;
+        padding: .8rem;
+        font-size: 1rem;
+        background: getColor(lightgray);
+    }
+}
+.infoBtn:hover{
+    box-shadow: 1rem;
+    -webkit-box-shadow: 0px 5px 40px -10px getColor(primary);
+    -moz-box-shadow: 0px 5px 40px -10px getColor(primary);
+    transition: all 0.4s ease 0s;
+}
+
+@media(min-width: 821px){
+    .contentContainer{
+        margin: auto;
+        width: 100%;
+    }
+    .containerTop{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cardContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+    }
+    .section{
+        position: absolute;
+        width: 60%;
+        top: 5%;
+    }
+    .imageContainer{
+        box-shadow: getColor(gray) .5rem .5rem .5rem;
+    }
+    .cardContent{
+        width: 80%;
+    }
+}
+
+@media(min-width: 1021px){
+    .contentContainer{
+        width: 100%;
+    }
+    .containerTop,
+    .containerBottom{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+    .imageContainer{
+        box-shadow: getColor(gray) .5rem .5rem .5rem;
+    }
+    .cardContainer {
+        width: 100%;
+        flex-direction: row;
+        position: absolute;
+    }
+    .cardContent{
+        font-size: 1rem;
+        width: 25%;
+    }
+}

@@ -1,0 +1,42 @@
+.adminContent {
+    display: flex;
+    flex-direction: column;
+    a {
+        font-size: 1.3rem;
+        color: getColor(black);
+        text-decoration: none;  
+        margin: 1rem;
+    }   
+}
+
+.contactContent,
+.bookingContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainer, 
+.bookingContainer{
+    border: 1px solid getColor(black);
+    border-radius: 5px;
+    padding: 1% 0 1% 3%;
+    margin-bottom: 3%;
+    width: 80%;
+}
+
+@media (min-width: 821px){
+    .contactContent,
+    .bookingContent {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .contactContainer, 
+    .bookingContainer{
+        margin: 0 3%  3% 0;
+        width: 40%;
+}
+}

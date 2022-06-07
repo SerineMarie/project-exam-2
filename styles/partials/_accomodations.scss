@@ -1,0 +1,49 @@
+.accomodationsCard{
+    border: 2px solid getColor(black);
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 10%;
+    width: 90%;
+    padding: 1rem;
+    .images{
+        width: 100%;
+    }
+    .bookBtn{
+        width: 50%;
+        padding: 1%;
+        cursor: pointer;
+    }
+    .readMoreBtn {
+        font-size: 1.32rem;
+        font-weight: 300;
+        color: getColor(black);
+        text-decoration: underline;
+    }
+}
+.accomodationsContent {
+    text-decoration: none;
+    color: getColor(black);
+}
+
+@media (min-width: 821px){
+    .accomodationsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .accomodationsCard{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 1rem 0;
+        width: 75%;
+
+        .images{
+            width: 40%;
+            margin: 1%;
+        }
+        .accomodationsText{
+            width: 50%;
+        }
+    } 
+}
