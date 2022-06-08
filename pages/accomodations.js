@@ -6,6 +6,7 @@ import Layout from '../components/common/layout/Layout';
 import Heading from '../components/common/heading/Heading';
 import Head from "../components/common/head/Head";
 import DisplayMessage from "../components/common/displayMessage/DisplayMessage";
+import Image from "next/image"
 
 export default function Accomodations(props){
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function Accomodations(props){
               imageUrl = hotel.attributes.images.data[0].attributes.url;
             }
             return ( <div key={hotel.id} className={styles.accomodationsCard}>
-                          <img src={imageUrl} className={styles.images}></img>
+                          <Image src={imageUrl} className={styles.images} width={500} height={300}/>
                           <div className={styles.accomodationsText}>
                             <h2 className={styles.subTitle}>{hotel.attributes.name}</h2>
                             <p className={styles.location} key={hotel.attributes.id}>{hotel.attributes.location}</p>

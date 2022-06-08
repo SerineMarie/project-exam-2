@@ -74,9 +74,6 @@
         width: 60%;
         top: 5%;
     }
-    .imageContainer{
-        box-shadow: getColor(gray) .5rem .5rem .5rem;
-    }
     .cardContent{
         width: 80%;
     }
@@ -93,9 +90,6 @@
         flex-wrap: wrap;
         justify-content: center;
         margin-bottom: 5%;
-    }
-    .imageContainer{
-        box-shadow: getColor(gray) .5rem .5rem .5rem;
     }
     .cardContainer {
         width: 100%;

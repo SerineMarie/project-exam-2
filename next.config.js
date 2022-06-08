@@ -7,6 +7,9 @@ module.exports = nextConfig
 
 module.exports = {
   images: {
-   domains: ["http://localhost:1337/api/hotels?populate=*"],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    path: "/_next/image",
+    loader: "default",
+    domains: ["res.cloudinary.com"],
   },
  };

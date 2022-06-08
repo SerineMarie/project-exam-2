@@ -7,6 +7,7 @@ import Layout from "../../components/common/layout/Layout";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Router from "next/router";
+import Image from 'next/image'
 
 export default function Accomodation({accomodation}){
     const router = Router
@@ -27,7 +28,7 @@ export default function Accomodation({accomodation}){
                             {accomodation.attributes.images.data.map((image) => {
                                 return(
                                     <div className={styles.carouselImage} key={image.id}>
-                                        <img className={styles.images} src={image.attributes.url}></img>
+                                        <Image className={styles.images} src={image.attributes.url} width={1200} height={800}/>
                                     </div>
                                 )
                             })}
