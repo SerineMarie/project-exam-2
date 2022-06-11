@@ -15,7 +15,7 @@ export default function Home(props) {
       <Head title={props.content.data.attributes.title}/>
           <div className={styles.containerTop}>
             <div className={styles.imageContainer}>
-            <Image src={props.content.data.attributes.images.data[1].attributes.url} className={styles.bgImage} width={2000} height={1550}/>
+            <Image src={props.content.data.attributes.images.data[1].attributes.url} className={styles.bgImage} alt="View of Bergen" width={2000} height={1550}/>
             </div>
             <section className={styles.section}>
               <div className={styles.infoCard}>
@@ -27,13 +27,13 @@ export default function Home(props) {
           </div>
           <div className={styles.containerBottom}>
             <div className={styles.imageContainer}>
-            <Image src={props.content.data.attributes.images.data[2].attributes.url} className={styles.bgImage2} width={2000} height={1300}/>
+            <Image src={props.content.data.attributes.images.data[2].attributes.url} className={styles.bgImage2} alt="View of Bergen" width={2000} height={1300}/>
             </div>
             <div className={styles.cardContainer}>
               {props.content.data.attributes.hotels.data.map((shortcut) =>{
                 return <section className={styles.cardContent} key={shortcut.id}>
                           <a href={`/accomodation/${shortcut.attributes.slug}`}>
-                            <Image src={props.content.data.attributes.images.data[4].attributes.url} className={styles.images} width={300} height={200}/>
+                            <Image src={props.content.data.attributes.images.data[4].attributes.url} className={styles.images} alt="Hotel room" width={300} height={200}/>
                             <h2 key={shortcut.attributes.id} className={styles.subTitle}>{shortcut.attributes.name}</h2>
                             <p>{shortcut.attributes.excerpt}</p>
                             <button className={styles.infoBtn}>Read more...</button>

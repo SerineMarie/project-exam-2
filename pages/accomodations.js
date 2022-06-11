@@ -22,7 +22,7 @@ export default function Accomodations(props){
               imageUrl = hotel.attributes.images.data[0].attributes.url;
             }
             return ( <div key={hotel.id} className={styles.accomodationsCard}>
-                          <Image src={imageUrl} className={styles.images} width={500} height={300}/>
+                          <Image src={imageUrl} className={styles.images} alt="Hotel room" width={500} height={300}/>
                           <div className={styles.accomodationsText}>
                             <h2 className={styles.subTitle}>{hotel.attributes.name}</h2>
                             <p className={styles.location} key={hotel.attributes.id}>{hotel.attributes.location}</p>
